@@ -121,7 +121,7 @@ def crear_checkout():
             "quantity": 1,
         }],
         mode="payment",
-        success_url="https://cobros-prueba-production.up.railway.app/exito",
+        success_url="https://cobros-prueba-production.up.railway.app/buscar-predio",
         cancel_url="https://cobros-prueba-production.up.railway.app/cancelado",
         metadata={
             "predio_id": predio_id
