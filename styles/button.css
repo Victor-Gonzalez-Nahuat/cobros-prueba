@@ -82,18 +82,95 @@
   margin-top: 7px;
 }
 
-@media only screen and (max-width: 480px) {
-  .container {
-    transform: scale(0.7);
-  }
+/* =========================================
+   MEDIA QUERIES (CELULAR) - VERSIÓN CORREGIDA
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .gov-container { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 10px; 
+    }
+    
+    .logo-section { 
+        flex-direction: column; 
+        gap: 10px; 
+    }
+    
+    .logo-section img { 
+        height: 70px; 
+    }
+    
+    .section-tag { 
+        display: none; 
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+        padding: 0 15px;
+    }
 
-  .container:hover {
-    transform: scale(0.74);
-  }
+    /* Ajuste del formulario para que no haya desbordes */
+    .search-form { 
+        flex-direction: column; 
+        align-items: center; 
+        padding: 0 20px;
+        gap: 20px;
+    }
 
-  .new {
-    font-size: 18px;
-  }
+    .input-group {
+        width: 100%;
+        max-width: 300px; /* Limitamos para que no toque los bordes del cel */
+    }
+
+    .input { 
+        max-width: 100%; 
+        width: 100%; 
+        margin-right: 0; /* Quitamos el margen que molestaba en escritorio */
+    }
+
+    /* FIX DEL BOTÓN ESTIRADO */
+    .pushable { 
+        width: 100%; 
+        max-width: 300px; /* Mismo ancho que el input para simetría */
+        display: block;
+    }
+
+    .front { 
+        width: 100%; 
+        text-align: center; 
+        box-sizing: border-box; /* Crucial para que el padding no lo estire */
+        padding: 14px 0; /* Quitamos padding lateral para que mande el width */
+    }
+
+    .edge, .shadow {
+        width: 100%; /* Forzamos a que las capas 3D no se salgan */
+        left: 0;
+    }
+
+    /* Tabla y botón de pagar */
+    .table-container {
+        width: 98%;
+    }
+
+    .container { 
+        width: 140px !important; 
+        height: 50px; 
+    }
+    
+    .left-side { 
+        width: 40px; 
+        height: 50px; 
+    }
+    
+    .new { 
+        font-size: 14px; 
+        margin-left: 10px;
+    }
+    
+    .card, .post { 
+        display: none; 
+    }
 }
 
 .buttons {

@@ -58,11 +58,13 @@
             <label for="folio">Folio del Predio:</label>
             <input type="text" name="folio" id="folio" class="input" placeholder="Ej. A001" required />
         </div>
-        <button type="submit" class="pushable">
-            <span class="shadow"></span>
-            <span class="edge"></span>
-            <span class="front"> Buscar 🔎</span>
-        </button>
+        <div class="button-wrapper">
+            <button type="submit" class="pushable">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front"> Buscar 🔎</span>
+            </button>
+        </div>
     </form>
 
     {% if predios is not none %}
