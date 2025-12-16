@@ -121,8 +121,8 @@ def crear_checkout():
             "quantity": 1,
         }],
         mode="payment",
-        success_url="http://127.0.0.1:5000/exito",
-        cancel_url="http://127.0.0.1:5000/cancelado",
+        success_url="https://cobros-prueba-production.up.railway.app/exito",
+        cancel_url="https://cobros-prueba-production.up.railway.app/cancelado",
         metadata={
             "predio_id": predio_id
         }
