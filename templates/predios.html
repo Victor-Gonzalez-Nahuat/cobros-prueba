@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+
+<body>
+    <h1>Listado de predios</h1>
+
+    <div style="display: flex; flex-direction: row;">
+        {% for p in predios %}
+        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+            <p><strong>Folio:</strong> {{ p.folio }}</p>
+            <p><strong>Monto:</strong> ${{ p.monto }}</p>
+            <p>{% if p.estado == 'pagado' %}✅ Pagado{% else %}❌ Pendiente{% endif %}</p>
+
+            {% if p.estado != 'pagado' %}
+                <form action="/crear-checkout" method="post">
+                    <input type="hidden" name="predio_id" value="{{ p.id }}">
+                    <input type="hidden" name="monto" value="{{ p.monto }}">
+                    
+                    <button type="submit" class="container">
+                        <div class="left-side">
+                            <div class="card">
+                                <div class="card-line"></div>
+                                <div class="buttons"></div>
+                            </div>
+                            <div class="post">
+                                <div class="post-line"></div>
+                                <div class="screen">
+                                    <div class="dollar">$</div>
+                                </div>
+                                <div class="numbers"></div>
+                                <div class="numbers-line2"></div>
+                            </div>
+                        </div>
+                        <div class="right-side">
+                            <div class="new">Pagar</div>
+                            <svg viewBox="0 0 451.846 451.847" height="20" width="20" xmlns="http://www.w3.org/2000/svg" class="arrow">
+                                <path fill="#cfcfcf" d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"/>
+                            </svg>
+                        </div>
+                    </button>
+                </form>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
