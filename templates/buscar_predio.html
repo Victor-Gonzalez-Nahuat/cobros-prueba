@@ -48,34 +48,36 @@
                 <tbody>
                     {% for p in predios %}
                         <tr>
-                            <td>
+                            <td style="text-align: center; vertical-align: middle;">
                                 {% if p.estado != 'pagado' %}
-                                    <form action="/crear-checkout" method="post">
+                                    <form action="/crear-checkout" method="post" style="display: inline-block;">
                                         <input type="hidden" name="predio_id" value="{{ p.id }}">
                                         
-                                        <button type="submit" class="container" style="background: none; border: none; padding: 0; cursor: pointer;">
-                                            <div class="left-side">
-                                                <div class="card">
-                                                    <div class="card-line"></div>
-                                                    <div class="buttons"></div>
-                                                </div>
-                                                <div class="post">
-                                                    <div class="post-line"></div>
-                                                    <div class="screen">
-                                                        <div class="dollar">$</div>
+                                        <div style="display: flex; flex-direction: row; align-items: center;">
+                                            <button type="submit" class="container" style="background: none; border: none; padding: 0; cursor: pointer;">
+                                                <div class="left-side">
+                                                    <div class="card">
+                                                        <div class="card-line"></div>
+                                                        <div class="buttons"></div>
                                                     </div>
-                                                    <div class="numbers"></div>
-                                                    <div class="numbers-line2"></div>
+                                                    <div class="post">
+                                                        <div class="post-line"></div>
+                                                        <div class="screen">
+                                                            <div class="dollar">$</div>
+                                                        </div>
+                                                        <div class="numbers"></div>
+                                                        <div class="numbers-line2"></div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="right-side">
-                                                <div class="new">Pagar</div>
-                                                <svg viewBox="0 0 451.846 451.847" height="20" width="20" xmlns="http://www.w3.org/2000/svg" class="arrow">
-                                                    <path fill="#cfcfcf" d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"/>
-                                                </svg>
-                                            </div>
-                                        </button>
-                                        </form>
+                                                <div class="right-side">
+                                                    <div class="new">Pagar</div>
+                                                    <svg viewBox="0 0 451.846 451.847" height="20" width="20" xmlns="http://www.w3.org/2000/svg" class="arrow">
+                                                        <path fill="#cfcfcf" d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"/>
+                                                    </svg>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </form>
                                 {% else %}
                                     <span style="color: green; font-weight: bold;">✅ Pagado</span>
                                 {% endif %}
