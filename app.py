@@ -59,7 +59,7 @@ def buscar_predio():
             try:
                 # Consulta para buscar predios que coincidan con el folio
                 # Usamos LIKE %s para permitir búsqueda parcial o fuzziness
-                query = "SELECT id, folio, monto, estado FROM PREDIOS_PRUEB WHERE folio LIKE %s"
+                query = "SELECT id, folio, nombre, monto, estado, direccion FROM PREDIOS_PRUEB WHERE folio LIKE %s"
                 cursor.execute(query, (f"%{folio_buscado}%",)) 
                 predios_encontrados = cursor.fetchall()
             except mysql.connector.Error as err:

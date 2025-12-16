@@ -1,366 +1,23 @@
-/* From Uiverse.io by Admin12121 */ 
-.container {
-  background-color: #ffffff;
-  display: flex;
-  width: 460px;
-  height: 120px;
-  position: relative;
-  border-radius: 6px;
-  transition: 0.3s ease-in-out;
-}
-
-.container:hover {
-  transform: scale(1.03);
-  width: 220px;
-}
-
-.container:hover .left-side {
-  width: 100%;
-}
-
-.left-side {
-  background-color: #5de2a3;
-  width: 130px;
-  height: 120px;
-  border-radius: 4px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.3s;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.right-side {
-  width: calc(100% - 130px);
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  cursor: pointer;
-  justify-content: space-between;
-  white-space: nowrap;
-  transition: 0.3s;
-}
-
-.right-side:hover {
-  background-color: #f9f7f9;
-}
-
-.arrow {
-  width: 20px;
-  height: 20px;
-  margin-right: 20px;
-}
-
-.new {
-  font-size: 23px;
-  font-family: "Lexend Deca", sans-serif;
-  margin-left: 20px;
-}
-
-.card {
-  width: 70px;
-  height: 46px;
-  background-color: #c7ffbc;
-  border-radius: 6px;
-  position: absolute;
-  display: flex;
-  z-index: 10;
-  flex-direction: column;
-  align-items: center;
-  -webkit-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
-  -moz-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
-  -webkit-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
-}
-
-.card-line {
-  width: 65px;
-  height: 13px;
-  background-color: #80ea69;
-  border-radius: 2px;
-  margin-top: 7px;
-}
-
-@media only screen and (max-width: 480px) {
-  .container {
-    transform: scale(0.7);
-  }
-
-  .container:hover {
-    transform: scale(0.74);
-  }
-
-  .new {
-    font-size: 18px;
-  }
-}
-
-.buttons {
-  width: 8px;
-  height: 8px;
-  background-color: #379e1f;
-  box-shadow: 0 -10px 0 0 #26850e, 0 10px 0 0 #56be3e;
-  border-radius: 50%;
-  margin-top: 5px;
-  transform: rotate(90deg);
-  margin: 10px 0 0 -30px;
-}
-
-.container:hover .card {
-  animation: slide-top 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) both;
-}
-
-.container:hover .post {
-  animation: slide-post 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
-}
-
-@keyframes slide-top {
-  0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  50% {
-    -webkit-transform: translateY(-70px) rotate(90deg);
-    transform: translateY(-70px) rotate(90deg);
-  }
-
-  60% {
-    -webkit-transform: translateY(-70px) rotate(90deg);
-    transform: translateY(-70px) rotate(90deg);
-  }
-
-  100% {
-    -webkit-transform: translateY(-8px) rotate(90deg);
-    transform: translateY(-8px) rotate(90deg);
-  }
-}
-
-.post {
-  width: 63px;
-  height: 75px;
-  background-color: #dddde0;
-  position: absolute;
-  z-index: 11;
-  bottom: 10px;
-  top: 120px;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.post-line {
-  width: 47px;
-  height: 9px;
-  background-color: #545354;
-  position: absolute;
-  border-radius: 0px 0px 3px 3px;
-  right: 8px;
-  top: 8px;
-}
-
-.post-line:before {
-  content: "";
-  position: absolute;
-  width: 47px;
-  height: 9px;
-  background-color: #757375;
-  top: -8px;
-}
-
-.screen {
-  width: 47px;
-  height: 23px;
-  background-color: #ffffff;
-  position: absolute;
-  top: 22px;
-  right: 8px;
-  border-radius: 3px;
-}
-
-.numbers {
-  width: 12px;
-  height: 12px;
-  background-color: #838183;
-  box-shadow: 0 -18px 0 0 #838183, 0 18px 0 0 #838183;
-  border-radius: 2px;
-  position: absolute;
-  transform: rotate(90deg);
-  left: 25px;
-  top: 52px;
-}
-
-.numbers-line2 {
-  width: 12px;
-  height: 12px;
-  background-color: #aaa9ab;
-  box-shadow: 0 -18px 0 0 #aaa9ab, 0 18px 0 0 #aaa9ab;
-  border-radius: 2px;
-  position: absolute;
-  transform: rotate(90deg);
-  left: 25px;
-  top: 68px;
-}
-
-@keyframes slide-post {
-  50% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  100% {
-    -webkit-transform: translateY(-70px);
-    transform: translateY(-70px);
-  }
-}
-
-.dollar {
-  position: absolute;
-  font-size: 16px;
-  font-family: "Lexend Deca", sans-serif;
-  width: 100%;
-  left: 0;
-  top: 0;
-  color: #4b953b;
-  text-align: center;
-}
-
-.container:hover .dollar {
-  animation: fade-in-fwd 0.3s 1s backwards;
-}
-
-@keyframes fade-in-fwd {
-  0% {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* BOTÓN BUSCAR - Estilo Institucional Guinda */
-.pushable {
-  position: relative;
-  background: transparent;
-  padding: 0px;
-  border: none;
-  cursor: pointer;
-  outline-offset: 4px;
-  outline-color: var(--gob-color-primary); /* Usa la variable guinda */
-  transition: filter 250ms;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.shadow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: hsl(0, 0%, 70%); /* Sombra gris neutral */
-  border-radius: 8px;
-  filter: blur(2px);
-  will-change: transform;
-  transform: translateY(2px);
-  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-}
-
-.edge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border-radius: 8px;
-  /* Gradiente en tonos vino/guinda */
-  background: linear-gradient(
-    to right,
-    #4a1022 0%,
-    #691C32 8%,
-    #691C32 92%,
-    #3a0d1a 100%
-  );
-}
-
-.front {
-  display: block;
-  position: relative;
-  border-radius: 8px;
-  background: #691C32; /* El guinda del encabezado */
-  padding: 16px 32px;
-  color: white;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 1rem;
-  transform: translateY(-4px);
-  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-}
-
-.pushable:hover .front {
-  background: #7d223c; /* Un guinda un poco más claro al pasar el mouse */
-  transform: translateY(-6px);
-}
-
-.pushable:active .front {
-  transform: translateY(-2px);
-}
-.pushable:hover .shadow {
-  transform: translateY(4px);
-  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-}
-
-.pushable:active .shadow {
-  transform: translateY(1px);
-  transition: transform 34ms;
-}
-
-.pushable:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* From Uiverse.io by anniekoop */ 
-.input {
-  width: 100%;           /* Ocupa el espacio disponible hasta el max-width */
-  max-width: 300px;      /* Aumentamos de 190px a 300px */
-  padding: 0.875rem;
-  font-size: 1.1rem;      /* Subimos un poco el tamaño de letra para legibilidad */
-  border: 1.5px solid #000;
-  border-radius: 0.5rem;
-  box-shadow: 2.5px 3px 0 #000;
-  outline: none;
-  transition: ease 0.25s;
-  background-color: white;
-}
-
-.input:focus {
-  box-shadow: 5.5px 7px 0 black;
-  border-color: var(--gob-color-primary); /* Cambia a guinda al escribir */
-}
-
-label[for="folio"] {
-    font-weight: bold;
-    color: var(--gob-text-dark);
-    font-size: 1.1rem;
-}
-
-/* Paleta de colores estilo gobierno (sobrio) */
+/* =========================================
+   VARIABLES Y BASE
+   ========================================= */
 :root {
-    --gob-color-primary: #691C32; /* Guinda institucional o azul marino */
-    --gob-color-secondary: #D4C19C; /* Dorado/Arena suave */
+    --gob-color-primary: #691C32; /* Guinda */
+    --gob-color-secondary: #D4C19C; /* Dorado */
     --gob-text-dark: #333;
+    --gob-bg-light: #f8f9fa;
 }
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
-    background-color: #f8f9fa;
+    background-color: var(--gob-bg-light);
+    color: var(--gob-text-dark);
 }
 
+/* =========================================
+   HEADER INSTITUCIONAL
+   ========================================= */
 .gov-header {
     background-color: #ffffff;
     padding: 15px 5%;
@@ -378,11 +35,12 @@ body {
 .logo-section {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .logo-section img {
-    height: 70px;   /* Esto mantiene la proporción de la imagen para que no se vea estirada */
+    height: 90px;
+    width: auto;
 }
 
 .header-text {
@@ -392,13 +50,13 @@ body {
 
 .gob-title {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--gob-color-primary);
     text-transform: uppercase;
 }
 
 .gob-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #666;
 }
 
@@ -415,17 +73,291 @@ body {
     width: 100%;
 }
 
-/* Ajuste para el H1 principal */
 h1 {
     text-align: center;
-    color: var(--gob-text-dark);
-    margin-top: 40px;
+    margin-top: 30px;
     font-weight: 300;
+    font-size: 2rem;
 }
 
-form {
+/* =========================================
+   FORMULARIO DE BÚSQUEDA
+   ========================================= */
+
+.search-form {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-end;
+    gap: 25px; /* Aumentamos el espacio entre elementos */
+    margin: 30px 0;
+    flex-wrap: wrap; /* Para que no se encimen en pantallas medianas */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input {
+    width: 100%;
+    max-width: 350px;
+    padding: 0.875rem;
+    font-size: 1.1rem;
+    border: 2px solid #000;
+    border-radius: 0.5rem;
+    box-shadow: 3px 3px 0px #000;
+    outline: none;
+    transition: all 0.25s;
+    /* Evita que el input se meta en el botón */
+    box-sizing: border-box; 
+    margin-right: 5px; 
+}
+
+.input:focus {
+    box-shadow: 5.5px 7px 0 black;
+    border-color: var(--gob-color-primary);
+}
+
+/* =========================================
+   BOTÓN BUSCAR (PUSHABLE)
+   ========================================= */
+.pushable {
+    position: relative;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    outline-offset: 4px;
+    margin-bottom: 3px; /* Alineación visual por la sombra del input */
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: hsl(0, 0%, 70%);
+    border-radius: 8px;
+    filter: blur(2px);
+    transform: translateY(2px);
+}
+
+.edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(to right, #4a1022 0%, #691C32 8%, #691C32 92%, #3a0d1a 100%);
+}
+
+.front {
+    display: block;
+    position: relative;
+    padding: 14px 30px;
+    border-radius: 8px;
+    background: var(--gob-color-primary);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.pushable:hover .front { transform: translateY(-6px); }
+.pushable:active .front { transform: translateY(-2px); }
+
+/* =========================================
+   BOTÓN PAGAR (ANIMACIONES COMPLETAS)
+   ========================================= */
+.container {
+  background-color: #ffffff;
+  display: flex;
+  width: 260px; /* Tamaño equilibrado para tabla */
+  height: 80px;
+  position: relative;
+  border-radius: 6px;
+  transition: 0.3s ease-in-out;
+  border: 1px solid #ddd;
+}
+
+.container:hover {
+  transform: scale(1.03);
+  width: 160px;
+}
+
+.container:hover .left-side { width: 100%; }
+
+.left-side {
+  background-color: #5de2a3;
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.right-side {
+  width: calc(100% - 80px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  justify-content: space-between;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.right-side:hover { background-color: #f9f7f9; }
+
+.new {
+  font-size: 20px;
+  font-family: "Lexend Deca", sans-serif;
+  margin-left: 20px;
+}
+
+.card {
+  width: 50px;
+  height: 35px;
+  background-color: #c7ffbc;
+  border-radius: 4px;
+  position: absolute;
+  display: flex;
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 4px 4px 4px -2px rgba(77, 200, 143, 0.72);
+}
+
+.card-line {
+  width: 40px;
+  height: 8px;
+  background-color: #80ea69;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+
+.buttons {
+  width: 6px;
+  height: 6px;
+  background-color: #379e1f;
+  box-shadow: 0 -8px 0 0 #26850e, 0 8px 0 0 #56be3e;
+  border-radius: 50%;
+  margin-top: 5px;
+  transform: rotate(90deg);
+  margin: 8px 0 0 -20px;
+}
+
+.post {
+  width: 50px;
+  height: 60px;
+  background-color: #dddde0;
+  position: absolute;
+  z-index: 11;
+  top: 80px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.post-line {
+  width: 35px;
+  height: 7px;
+  background-color: #545354;
+  position: absolute;
+  border-radius: 0px 0px 3px 3px;
+  right: 8px;
+  top: 8px;
+}
+
+.post-line:before {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 7px;
+  background-color: #757375;
+  top: -7px;
+}
+
+.screen {
+  width: 35px;
+  height: 18px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 18px;
+  right: 8px;
+  border-radius: 3px;
+}
+
+.dollar {
+  position: absolute;
+  font-size: 14px;
+  width: 100%;
+  color: #4b953b;
+  text-align: center;
+  top: 0;
+}
+
+.numbers {
+  width: 8px;
+  height: 8px;
+  background-color: #838183;
+  box-shadow: 0 -14px 0 0 #838183, 0 14px 0 0 #838183;
+  border-radius: 2px;
+  position: absolute;
+  transform: rotate(90deg);
+  left: 20px;
+  top: 42px;
+}
+
+/* --- KEYFRAMES --- */
+.container:hover .card { animation: slide-top 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) both; }
+.container:hover .post { animation: slide-post 1s cubic-bezier(0.165, 0.84, 0.44, 1) both; }
+.container:hover .dollar { animation: fade-in-fwd 0.3s 1s backwards; }
+
+@keyframes slide-top {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-60px) rotate(90deg); }
+  60% { transform: translateY(-60px) rotate(90deg); }
+  100% { transform: translateY(-5px) rotate(90deg); }
+}
+
+@keyframes slide-post {
+  50% { transform: translateY(0); }
+  100% { transform: translateY(-70px); }
+}
+
+@keyframes fade-in-fwd {
+  0% { opacity: 0; transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   MEDIA QUERIES (CELULAR)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .gov-container { flex-direction: column; text-align: center; padding: 10px; }
+    .logo-section { flex-direction: column; gap: 10px; }
+    .logo-section img { height: 70px; }
+    .section-tag { display: none; }
+    
+    .search-form { flex-direction: column; align-items: center; padding: 0 20px; }
+    .input { max-width: 100%; width: 280px; }
+    .pushable { width: 280px; }
+    .front { width: 100%; text-align: center; }
+
+    /* En móvil simplificamos el botón de pagar para que no rompa la tabla */
+    .container { width: 140px; height: 50px; }
+    .left-side { width: 40px; height: 50px; }
+    .new { font-size: 14px; }
+    .card, .post { display: none; } /* Evita errores visuales en pantallas touch */
 }
