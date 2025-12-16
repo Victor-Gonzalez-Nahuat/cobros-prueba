@@ -242,7 +242,7 @@
   }
 }
 
-/* From Uiverse.io by PriyanshuGupta28 */ 
+/* BOTÓN BUSCAR - Estilo Institucional Guinda */
 .pushable {
   position: relative;
   background: transparent;
@@ -250,7 +250,7 @@
   border: none;
   cursor: pointer;
   outline-offset: 4px;
-  outline-color: deeppink;
+  outline-color: var(--gob-color-primary); /* Usa la variable guinda */
   transition: filter 250ms;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -261,7 +261,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: hsl(226, 25%, 69%);
+  background: hsl(0, 0%, 70%); /* Sombra gris neutral */
   border-radius: 8px;
   filter: blur(2px);
   will-change: transform;
@@ -276,12 +276,13 @@
   height: 100%;
   width: 100%;
   border-radius: 8px;
+  /* Gradiente en tonos vino/guinda */
   background: linear-gradient(
     to right,
-    hsl(248, 39%, 39%) 0%,
-    hsl(248, 39%, 49%) 8%,
-    hsl(248, 39%, 39%) 92%,
-    hsl(248, 39%, 29%) 100%
+    #4a1022 0%,
+    #691C32 8%,
+    #691C32 92%,
+    #3a0d1a 100%
   );
 }
 
@@ -289,7 +290,7 @@
   display: block;
   position: relative;
   border-radius: 8px;
-  background: hsl(248, 53%, 58%);
+  background: #691C32; /* El guinda del encabezado */
   padding: 16px 32px;
   color: white;
   font-weight: 600;
@@ -300,20 +301,14 @@
   transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
-.pushable:hover {
-  filter: brightness(110%);
-}
-
 .pushable:hover .front {
+  background: #7d223c; /* Un guinda un poco más claro al pasar el mouse */
   transform: translateY(-6px);
-  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 }
 
 .pushable:active .front {
   transform: translateY(-2px);
-  transition: transform 34ms;
 }
-
 .pushable:hover .shadow {
   transform: translateY(4px);
   transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
@@ -330,16 +325,107 @@
 
 /* From Uiverse.io by anniekoop */ 
 .input {
-  max-width: 190px;
+  width: 100%;           /* Ocupa el espacio disponible hasta el max-width */
+  max-width: 300px;      /* Aumentamos de 190px a 300px */
   padding: 0.875rem;
-  font-size: 1rem;
+  font-size: 1.1rem;      /* Subimos un poco el tamaño de letra para legibilidad */
   border: 1.5px solid #000;
   border-radius: 0.5rem;
   box-shadow: 2.5px 3px 0 #000;
   outline: none;
   transition: ease 0.25s;
+  background-color: white;
 }
 
 .input:focus {
   box-shadow: 5.5px 7px 0 black;
+  border-color: var(--gob-color-primary); /* Cambia a guinda al escribir */
+}
+
+label[for="folio"] {
+    font-weight: bold;
+    color: var(--gob-text-dark);
+    font-size: 1.1rem;
+}
+
+/* Paleta de colores estilo gobierno (sobrio) */
+:root {
+    --gob-color-primary: #691C32; /* Guinda institucional o azul marino */
+    --gob-color-secondary: #D4C19C; /* Dorado/Arena suave */
+    --gob-text-dark: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+.gov-header {
+    background-color: #ffffff;
+    padding: 15px 5%;
+    border-bottom: 1px solid #eee;
+}
+
+.gov-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-section img {
+    height: 70px;   /* Esto mantiene la proporción de la imagen para que no se vea estirada */
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.gob-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--gob-color-primary);
+    text-transform: uppercase;
+}
+
+.gob-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.section-tag {
+    font-weight: 500;
+    color: #555;
+    border-left: 2px solid #ddd;
+    padding-left: 15px;
+}
+
+.gov-accent-bar {
+    height: 8px;
+    background: linear-gradient(90deg, var(--gob-color-primary) 0%, var(--gob-color-secondary) 100%);
+    width: 100%;
+}
+
+/* Ajuste para el H1 principal */
+h1 {
+    text-align: center;
+    color: var(--gob-text-dark);
+    margin-top: 40px;
+    font-weight: 300;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }

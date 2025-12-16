@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Búsqueda de Predios</title>
+    <title>Telchac Puerto - Consulta y Pago de Predial</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
     <style>
-        /* Estilos básicos para la tabla para que sea legible */
         table {
             width: 80%;
             margin-top: 20px;
@@ -22,6 +21,22 @@
 </head>
 
 <body>
+    <header class="gov-header">
+        <div class="gov-container">
+            <div class="logo-section">
+                <img src="https://i.ibb.co/PGsHBJtN/LOGO-TELCHACPTO.png" alt="Escudo Telchac Puerto">
+                <div class="header-text">
+                    <span class="gob-title">H. Ayuntamiento de Telchac Puerto</span>
+                    <span class="gob-subtitle">Gobierno Municipal 2024-2027</span>
+                </div>
+            </div>
+            <div class="section-tag">
+                <span>Trámites y Servicios</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="gov-accent-bar"></div>
     <h1>Pago de Predios EnLinea</h1>
 
     <form action="/buscar-predio" method="post" style="margin-bottom: 20px;">
