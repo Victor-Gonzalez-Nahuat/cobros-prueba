@@ -120,4 +120,6 @@ def cancelado():
     return "❌ Pago cancelado"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # usa el PORT que da Railway, si no, 5000
+    app.run(host="0.0.0.0", port=port)
+
