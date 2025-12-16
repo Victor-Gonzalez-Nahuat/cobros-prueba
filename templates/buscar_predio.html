@@ -5,32 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telchac Puerto - Consulta y Pago de Predial</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
-    <style>
-        /* Estilos básicos para la tabla que no estaban en el CSS externo */
-        .table-container {
-            width: 95%;
-            margin: 20px auto;
-            overflow-x: auto; /* Permite scroll horizontal en móviles */
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px 8px;
-            text-align: left;
-        }
-        th {
-            background-color: var(--gob-color-primary);
-            color: white;
-        }
-        h2 {
-            text-align: center;
-            color: var(--gob-text-dark);
-        }
-    </style>
 </head>
 
 <body>
@@ -68,63 +42,77 @@
     </form>
 
     {% if predios is not none %}
-        <div class="table-container">
+        <div class="results-container">
             {% if predios | length > 0 %}
                 <h2>Resultados Encontrados</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Acción</th>
-                            <th>ID</th>
-                            <th>Folio</th>
-                            <th>Nombre</th>
-                            <th>Monto</th>
-                            <th>Dirección</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for p in predios %}
-                            <tr>
-                                <td style="text-align: center;">
-                                    {% if p.estado != 'pagado' %}
-                                        <form action="/crear-checkout" method="post">
-                                            <input type="hidden" name="predio_id" value="{{ p.id }}">
-                                            <button type="submit" class="container pay-button">
-                                                <div class="left-side">
-                                                    <div class="card"><div class="card-line"></div><div class="buttons"></div></div>
-                                                    <div class="post">
-                                                        <div class="post-line"></div>
-                                                        <div class="screen"><div class="dollar">$</div></div>
-                                                        <div class="numbers"></div><div class="numbers-line2"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="right-side">
-                                                    <div class="new">Pagar</div>
-                                                    <svg viewBox="0 0 451.846 451.847" height="15" width="15" xmlns="http://www.w3.org/2000/svg" class="arrow">
-                                                        <path fill="#cfcfcf" d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"/>
-                                                    </svg>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    {% else %}
-                                        <span style="color: green; font-weight: bold;">✅ Pagado</span>
+                
+                <div class="responsive-table-container">
+                    {% for p in predios %}
+                    <div class="predio-card">
+                        <div class="card-header">
+                            <span class="folio-tag">Folio: {{ p.folio }}</span>
+                            <span class="id-tag">ID Sistema: #{{ p.id }}</span>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="info-row">
+                                <span class="label">Contribuyente:</span>
+                                <span class="value">{{ p.nombre }}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Dirección:</span>
+                                <span class="value">{{ p.direccion }}</span>
+                            </div>
+                            <div class="info-row highlight">
+                                <span class="label">Monto a Pagar:</span>
+                                <span class="value monto">${{ p.monto }}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Estado de Pago:</span>
+                                <span class="value">
+                                    {% if p.estado == 'pagado' %} 
+                                        <span class="status-paid">✅ Pagado</span>
+                                    {% else %} 
+                                        <span class="status-pending">❌ Pendiente</span>
                                     {% endif %}
-                                </td>
-                                <td>{{ p.id }}</td>
-                                <td>{{ p.folio }}</td>
-                                <td>{{ p.nombre }}</td>
-                                <td>${{ p.monto }}</td>
-                                <td>{{ p.direccion }}</td>
-                                <td>
-                                    {% if p.estado == 'pagado' %} ✅ Pagado {% else %} ❌ Pendiente {% endif %}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            {% if p.estado != 'pagado' %}
+                                <form action="/crear-checkout" method="post">
+                                    <input type="hidden" name="predio_id" value="{{ p.id }}">
+                                    <button type="submit" class="container pay-button">
+                                        <div class="left-side">
+                                            <div class="card"><div class="card-line"></div><div class="buttons"></div></div>
+                                            <div class="post">
+                                                <div class="post-line"></div>
+                                                <div class="screen"><div class="dollar">$</div></div>
+                                                <div class="numbers"></div>
+                                            </div>
+                                        </div>
+                                        <div class="right-side">
+                                            <div class="new">Pagar</div>
+                                            <svg viewBox="0 0 451.846 451.847" height="15" width="15" xmlns="http://www.w3.org/2000/svg" class="arrow">
+                                                <path fill="#cfcfcf" d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"/>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </form>
+                            {% else %}
+                                <div class="already-paid-badge">
+                                    <span>Completado</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             {% else %}
-                <p style="color: red; font-weight: bold; text-align: center;">⚠️ No se encontraron predios con ese folio.</p>
+                <div class="no-results">
+                    <p>⚠️ No se encontraron predios con el folio ingresado.</p>
+                </div>
             {% endif %}
         </div>
     {% endif %}
